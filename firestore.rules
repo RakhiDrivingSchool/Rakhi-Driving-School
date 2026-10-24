@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSchoolAdmin() {
+      return request.auth != null
+        && request.auth.token.email == "replace-with-your-admin-email@example.com";
+    }
+    match /gallery/{itemId} {
+      allow read: if true;
+      allow create: if isSchoolAdmin()
+        && request.resource.data.keys().hasAll(['caption','fileName','contentType','size','url','storagePath','createdAt','uploadedBy'])
+        && request.resource.data.caption is string
+        && request.resource.data.caption.size() <= 100
+        && request.resource.data.fileName is string
+        && request.resource.data.contentType is string
+        && request.resource.data.size is int
+        && request.resource.data.size <= 52428800
+        && request.resource.data.url is string
+        && request.resource.data.storagePath is string
+        && request.resource.data.storagePath.matches('gallery/.*')
+        && request.resource.data.uploadedBy == request.auth.token.email;
+      allow delete: if isSchoolAdmin();
+      allow update: if false;
+    }
+  }
+}
