@@ -61,7 +61,7 @@
 <p id="scootyCoursePriceNote" class="note" style="margin:10px 0 0">Select the number of days to view the course fee.</p>
 <p class="note" style="margin:6px 0 0;font-weight:750;color:#1768d2">Course charges may be negotiable. Contact us to discuss.</p>
 </div>
-<div class="foot"><div><small>Scooty Driving Course Fees</small><b>Choose duration above</b></div><a class="btn blue" id="scootyCourseEnquire" href="https://wa.me/918121788667?text=Please%20share%20Scooty%20Driving%20Course%20fees%20and%20schedule." rel="noopener" target="_blank">Enquire ↗</a></div></div></article>
+<div class="foot"><div><small>Scooty Driving Course Fees</small><b>Choose duration above</b></div><a class="btn blue" id="scootyCourseEnquire" href="https://wa.me/919052399002?text=Please%20share%20Scooty%20Driving%20Course%20fees%20and%20schedule." rel="noopener" target="_blank">Enquire ↗</a></div></div></article>
 </div></div></section>
 <section class="section soft" id="about"><div class="wrap why"><div class="darkCard"><span class="pill">The Rakhi approach</span><h3>Good driving is about more than passing a test.</h3><p>Our goal is to help learners develop calm, responsible and safety-conscious driving habits.</p><div class="stats"><div class="stat"><strong>2</strong>Training options</div><div class="stat"><strong>1:1</strong>Ask about individual practice</div></div></div><div><div class="kicker">Why learn with us?</div><h2>Training designed around the learner</h2><p class="muted">Whether you are starting from zero or want to feel more comfortable on the road, begin with the skills you need most.</p><div class="benefits"><div class="benefit"><div class="ico">👨‍👩‍👧</div><div><h4>For men and women</h4><p>Car driving training welcomes both male and female learners.</p></div></div><div class="benefit"><div class="ico">👩‍🏫</div><div><h4>Female scooty instructor</h4><p>Women can enquire about scooty training with a female instructor.</p></div></div><div class="benefit"><div class="ico">💰</div><div><h4>Affordable course options</h4><p>Ask us about course fees and choose an option that suits your budget.</p></div></div><div class="benefit"><div class="ico">🕒</div><div><h4>Comfortable timings</h4><p>Tell us your preferred time and ask about available lesson slots.</p></div></div><div class="benefit"><div class="ico">🛡️</div><div><h4>Safety-first learning</h4><p>Build awareness, control and responsible road habits step by step.</p></div></div><div class="benefit"><div class="ico">📋</div><div><h4>Clear guidance</h4><p>Ask what documents or learner requirements you need before starting.</p></div></div></div></div></div></section>
 <section class="section"><div class="wrap"><div class="head"><div class="kicker">Getting started</div><h2>Three simple steps</h2><p>It is easy to ask a question and plan your first lesson.</p></div><div class="steps"><div class="step"><div class="num">01</div><h3>Send an enquiry</h3><p>Tell us whether you want car or two-wheeler training and ask about fees.</p></div><div class="step"><div class="num">02</div><h3>Discuss your schedule</h3><p>Discuss affordable fees, comfortable lesson timings and any documents or requirements before starting.</p></div><div class="step"><div class="num">03</div><h3>Begin learning</h3><p>Start practising the basics and build confidence lesson by lesson.</p></div></div></div></section>
@@ -88,7 +88,7 @@ document.getElementById('menu').onclick=()=>document.getElementById('links').cla
 let rating=5;const stars=[...document.querySelectorAll('#starPick button')];function paint(){stars.forEach(b=>b.classList.toggle('active',+b.dataset.r<=rating));document.getElementById('ratingDisplay').textContent=rating+'.0'}stars.forEach(b=>b.onclick=()=>{rating=+b.dataset.r;paint()});
 function wa(t){window.open('https://wa.me/'+PHONE+'?text='+encodeURIComponent(t),'_blank','noopener')}
 document.getElementById('reviewForm').onsubmit=e=>{e.preventDefault();wa(`Rakhi Driving School - Student Review\nName: ${rname.value.trim()}\nCourse: ${rcourse.value}\nRating: ${rating}/5\nFeedback: ${rtext.value.trim()}`)};
-document.getElementById('enquiryForm').onsubmit=e=>{e.preventDefault();wa(`Rakhi Driving School - New Student Enquiry\nName: ${sname.value.trim()}\nStudent phone: ${sphone.value.trim()}\nCourse: ${course.value}\nPreferred timing: ${time.value}\nMessage: ${msg.value.trim()||'Not specified'}`)};
+document.getElementById('enquiryForm').onsubmit=e=>{e.preventDefault();const selectedCourse=course.value;const targetPhone=selectedCourse==='Scooty (female learner)'?'919052399002':'918121788667';window.open('https://wa.me/'+targetPhone+'?text='+encodeURIComponent(`Rakhi Driving School - New Student Enquiry\nName: ${sname.value.trim()}\nStudent phone: ${sphone.value.trim()}\nCourse: ${selectedCourse}\nPreferred timing: ${time.value}\nMessage: ${msg.value.trim()||'Not specified'}`),'_blank','noopener')};
 
 </script> <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
@@ -148,11 +148,11 @@ if (grid && SUPABASE_URL.startsWith('https://') && SUPABASE_ANON_KEY.startsWith(
  const prices={'10':5000};
  days.addEventListener('change',()=>{
    const d=days.value;
-   if(!d){amount.textContent='—';note.textContent='Select the number of days to view the course fee.';enquire.href='https://wa.me/918121788667?text=Please%20share%20Scooty%20Driving%20Course%20fees%20and%20schedule.';return;}
+   if(!d){amount.textContent='—';note.textContent='Select the number of days to view the course fee.';enquire.href='https://wa.me/919052399002?text=Please%20share%20Scooty%20Driving%20Course%20fees%20and%20schedule.';return;}
    const price=prices[d];
    amount.textContent='₹'+price.toLocaleString('en-IN');
    note.textContent=d+' days scooty driving course fee: ₹'+price.toLocaleString('en-IN');
-   enquire.href='https://wa.me/918121788667?text='+encodeURIComponent('Hello Rakhi Driving School, I am interested in the '+d+' days scooty driving course (₹'+price+'). I understand charges may be negotiable. Please share available timings.');
+   enquire.href='https://wa.me/919052399002?text='+encodeURIComponent('Hello Rakhi Driving School, I am interested in the '+d+' days scooty driving course (₹'+price+'). I understand charges may be negotiable. Please share available timings.');
  });
 })();
 </script>
