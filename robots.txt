@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rakhidrivingschool.github.io/Rakhi-Driving-School/sitemap.xml
